@@ -38,14 +38,16 @@ df.info()
 
 ### ✅ **1. Identify and Handle Missing Values**
 **Python Implementation:**
-
+- Used `.isnull()` to detect missing values in the "Income" column.
 ```python
 df[df["Income"].isnull()].index
+```
+![Screenshot (67)](https://github.com/user-attachments/assets/3ceaefd2-2c2d-453c-8f06-d06470f0d75e)
+
+- Replaced missing values with the **mean** of the column.
+```python
 df["Income"] = df["Income"].fillna(df["Income"].mean())
 ```
-- Used `.isnull()` to detect missing values in the "Income" column.
-- Replaced missing values with the **mean** of the column.
-
 
 ### ✅ **2. Remove Duplicate Rows**
 ```python
