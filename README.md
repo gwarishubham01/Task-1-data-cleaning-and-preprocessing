@@ -4,7 +4,7 @@
 **Dataset from Kaggle for Task 1:**  
 Dataset: <a href="https://github.com/gwarishubham01/Task-1-data-cleaning-and-preprocessing/blob/main/marketing_campaign.csv">Dataset</a>   
 
-## **Importing Libraries and Load Data**x
+## **Importing Libraries and Load Data**
 
 - Loading essential libraries (Pandas, NumPy, datetime)
 ```Python
