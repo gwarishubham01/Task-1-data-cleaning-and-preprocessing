@@ -1,10 +1,36 @@
 # Task-1-data-cleaning-and-preprocessing
 
 **Objective**: Clean and prepare a raw dataset(with nulls, duplicates, inconsistent formats).
-**Dataset from Kaggle for Task 1:**
-Dataset: <a href="https://github.com/gwarishubham01/Task-1-data-cleaning-and-preprocessing/blob/main/marketing_campaign.csv">Dataset</a>
+**Dataset from Kaggle for Task 1:**  
+Dataset: <a href="https://github.com/gwarishubham01/Task-1-data-cleaning-and-preprocessing/blob/main/marketing_campaign.csv">Dataset</a>   
+
+## **Importing Libraries and Load Data**
+- Loading essential libraries (Pandas, NumPy, datetime)
+- Reading dataset from CSV with tab separator
+```Python
+import numpy as np
+import pandas as pd
+from datetime import datetime
+
+import warnings
+warnings.filterwarnings('ignore')
+
+df = pd.read_csv("/content/sample_data/marketing_campaign.csv", sep='\t')
+```
+## **Data Exploration**
+- Dataset contains 2240 rows and 29 column (or features)
+- Income has 24 missing values
+```Python
+df.head()
+df.describe().T
+df.info()
+```
+
+## **Data Cleaning and Preprocessing**
+
 ### ✅ **1. Identify and Handle Missing Values**
 **Python Implementation:**
+
 ```python
 df[df["Income"].isnull()].index
 df["Income"] = df["Income"].fillna(df["Income"].mean())
@@ -17,7 +43,7 @@ df["Income"] = df["Income"].fillna(df["Income"].mean())
 ```python
 df = df.drop_duplicates()
 ```
-- All duplicate rows in the dataset are removed using `.drop_duplicates()`.
+- All duplicate rows in the dataset are removed using `.drop_duplicates()`
 
 
 
@@ -28,7 +54,6 @@ df['Marital_Status'] = df['Marital_Status'].replace(['Divorced', 'Widow', 'Alone
 ```
 - **Marital_Status** categories were consolidated into `'Couple'` and `'Single'`.
 
-> You could also standardize columns like `'Education'`, `'Country'`, or others if needed.
 
 
 
@@ -36,16 +61,15 @@ df['Marital_Status'] = df['Marital_Status'].replace(['Divorced', 'Widow', 'Alone
 ```python
 df['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'] ,format='%d-%m-%Y')
 ```
-- The **Dt_Customer** column was converted into `datetime` format.
 
 
 
-### ⚠️ **5. Rename Column Headers to Be Clean and Uniform**
-This was **not yet handled** in the code. You can add:
+
+### ✅ **5. Rename Column Headers to Be Clean and Uniform**
+
 ```python
 df.columns = df.columns.str.lower().str.replace(' ', '_')
 ```
-- This will convert all column names to lowercase and replace spaces with underscores.
 
 
 
@@ -64,12 +88,6 @@ To ensure `Year_Birth` is integer and dates are datetime:
 df['Year_Birth'] = df['Year_Birth'].astype(int)
 ```
 
-
-
-### 💡 Suggestions to Enhance Further:
-- **Standardize gender or country names** if present.
-- **Normalize column values** (e.g., lowercase text entries).
-- Consider checking **outliers** in income or age.
 - Export cleaned data:
   ```python
   df.to_csv("cleaned_marketing_campaign.csv", index=False)
