@@ -20,8 +20,7 @@ warnings.filterwarnings('ignore')
 df = pd.read_csv("/content/sample_data/marketing_campaign.csv", sep='\t')
 df.head()
 ```
-![image](https://github.com/user-attachments/assets/4c9f33e9-f186-4319-b316-48357dff4658)
-
+![Screenshot (64)](https://github.com/user-attachments/assets/dfc3485f-c796-44c2-b8b7-ef68dee6f861)
 ## **Data Exploration**
 - Dataset contains 2240 rows and 29 column (or features)
 - Income has 24 missing values
