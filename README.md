@@ -25,10 +25,14 @@ df.head()
 - Dataset contains 2240 rows and 29 column (or features)
 - Income has 24 missing values
 ```Python
-df.head()
 df.describe().T
+```
+![Screenshot (65)](https://github.com/user-attachments/assets/4e5d65aa-6786-4074-8114-ec3cc19ffa57)
+
+```Python
 df.info()
 ```
+![Screenshot (66)](https://github.com/user-attachments/assets/996eba4f-6986-4e6d-a17d-7a77f5a363eb)
 
 ## **Data Cleaning and Preprocessing**
 
