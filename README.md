@@ -6,7 +6,6 @@ Dataset: <a href="https://github.com/gwarishubham01/Task-1-data-cleaning-and-pre
 
 ## **Importing Libraries and Load Data**
 - Loading essential libraries (Pandas, NumPy, datetime)
-- Reading dataset from CSV with tab separator
 ```Python
 import numpy as np
 import pandas as pd
@@ -14,8 +13,11 @@ from datetime import datetime
 
 import warnings
 warnings.filterwarnings('ignore')
-
+```
+- Reading dataset from CSV with tab separator
+```python
 df = pd.read_csv("/content/sample_data/marketing_campaign.csv", sep='\t')
+df.head()
 ```
 ## **Data Exploration**
 - Dataset contains 2240 rows and 29 column (or features)
