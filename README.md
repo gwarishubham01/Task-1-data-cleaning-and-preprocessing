@@ -37,7 +37,6 @@ df.info()
 ## **Data Cleaning and Preprocessing**
 
 ### ✅ **1. Identify and Handle Missing Values**
-**Python Implementation:**
 - Used `.isnull()` to detect missing values in the "Income" column.
 ```python
 df[df["Income"].isnull()].index
@@ -57,12 +56,33 @@ df[df["Income"].isnull()].index
 ### ✅ **2. Remove Duplicate Rows**
 ```python
 df = df.drop_duplicates()
+df.info()
 ```
 - All duplicate rows in the dataset are removed using `.drop_duplicates()`
+![Screenshot (69)](https://github.com/user-attachments/assets/f37aad22-cf41-4008-8516-c30094a3657b)
 
 
 
 ### ✅ **3. Standardize Text Values**
+```python
+numerical_columns=df.select_dtypes(include = 'number').columns
+categorical_columns=df.select_dtypes(include = 'object').columns
+```
+```python
+df[categorical_columns] =df[categorical_columns].astype('category')
+categorical_columns
+```
+![Screenshot (70)](https://github.com/user-attachments/assets/1bd06681-54ba-4542-b914-35df8e046400)
+
+```python
+df['Education'].unique()
+```
+![Screenshot (71)](https://github.com/user-attachments/assets/19782bec-57ab-45ee-93e7-3db95440e825)
+```python
+df['Marital_Status'].unique()
+```
+![Screenshot (72)](https://github.com/user-attachments/assets/b0e70b8c-d138-4ac6-b85a-82710bf66118)
+
 ```python
 df['Marital_Status'] = df['Marital_Status'].replace(['Together', 'Married'], 'Couple')
 df['Marital_Status'] = df['Marital_Status'].replace(['Divorced', 'Widow', 'Alone', 'Absurd', 'YOLO'], 'Single')
@@ -76,23 +96,14 @@ df['Marital_Status'] = df['Marital_Status'].replace(['Divorced', 'Widow', 'Alone
 ```python
 df['Dt_Customer'] = pd.to_datetime(df['Dt_Customer'] ,format='%d-%m-%Y')
 ```
-
-
-
-
 ### ✅ **5. Rename Column Headers to Be Clean and Uniform**
-
 ```python
-df.columns = df.columns.str.lower().str.replace(' ', '_')
+df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_')
 ```
-
-
-
 ### ✅ **6. Check and Fix Data Types**
 ```python
 df.info()
 ```
-- You’ve checked data types with `.info()`.
 ```python
 df[categorical_columns] = df[categorical_columns].astype('category')
 ```
@@ -107,3 +118,4 @@ df['Year_Birth'] = df['Year_Birth'].astype(int)
   ```python
   df.to_csv("cleaned_marketing_campaign.csv", index=False)
   ```
+![Screenshot (73)](https://github.com/user-attachments/assets/9c9fa424-9e46-44ac-a144-bc1ce2d1b7b0)
