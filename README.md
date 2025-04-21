@@ -48,6 +48,11 @@ df[df["Income"].isnull()].index
 ```python
 df["Income"] = df["Income"].fillna(df["Income"].mean())
 ```
+- Checking for any missing values
+```python
+df[df["Income"].isnull()].index
+```
+![Screenshot (68)](https://github.com/user-attachments/assets/d4cd4682-d399-4807-aa89-6af6ed7ea567)
 
 ### ✅ **2. Remove Duplicate Rows**
 ```python
