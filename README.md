@@ -4,7 +4,8 @@
 **Dataset from Kaggle for Task 1:**  
 Dataset: <a href="https://github.com/gwarishubham01/Task-1-data-cleaning-and-preprocessing/blob/main/marketing_campaign.csv">Dataset</a>   
 
-## **Importing Libraries and Load Data**
+## **Importing Libraries and Load Data**x
+
 - Loading essential libraries (Pandas, NumPy, datetime)
 ```Python
 import numpy as np
@@ -19,6 +20,8 @@ warnings.filterwarnings('ignore')
 df = pd.read_csv("/content/sample_data/marketing_campaign.csv", sep='\t')
 df.head()
 ```
+![image](https://github.com/user-attachments/assets/4c9f33e9-f186-4319-b316-48357dff4658)
+
 ## **Data Exploration**
 - Dataset contains 2240 rows and 29 column (or features)
 - Income has 24 missing values
