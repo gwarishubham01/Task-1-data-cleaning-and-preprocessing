@@ -112,6 +112,7 @@ df[categorical_columns] = df[categorical_columns].astype('category')
 To ensure `Year_Birth` is integer and dates are datetime:
 ```python
 df['Year_Birth'] = df['Year_Birth'].astype(int)
+df['age'] = current_year - df['year_birth']
 ```
 
 - Export cleaned data:
